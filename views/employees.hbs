@@ -1,0 +1,111 @@
+<!--
+Nowheresville Rapid Transit Management
+David Elmer and Chenliang Wang
+
+employees.hbs written by David Elmer
+-->
+
+<div class='content'>
+    <h1>Add or Remove Employees</h1>
+    <form id="employees_insert_form">
+        <fieldset>
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" name="first_name">
+            <br>
+
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="last_name">
+            <br>
+
+            <label for="street">Street Address</label>
+            <input type="text" id="street" name="street">
+            <br>
+
+            <label for="city">City</label>
+            <input type="text" id="city" name="city">
+            <br>
+
+            <label for="state">State</label>
+            <input type="text" id="state" name="state">
+            <br>
+
+            <label for="zip">Zip Code</label>
+            <input type="text" id="zip" name="zip">
+            <br>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob">
+            <br>
+
+            <label for="train_select">Train</label>
+            <select id="train_select" name="train">
+                <option value="NULL">None</option>
+                {{#each trains}}
+                <option value="{{this.train_id}}">{{this.train_id}}</option>
+                {{/each}}
+            </select>
+            <br>
+
+            <label for="yard_select">Yard</label>
+            <select id="yard_select" name="yard">
+                <option value="NULL">None</option>
+                {{#each yards}}
+                <option value="{{this.yard_id}}">{{this.name}}</option>
+                {{/each}}
+            </select>
+            <br>
+
+            <label for="station_select">Station</label>
+            <select id="station_select" name="station">
+                <option value="NULL">None</option>
+                {{#each stations}}
+                <option value="{{this.station_id}}">{{this.name}}</option>
+                {{/each}}
+            </select>
+            <br>
+
+            <input type="button" id="employees_insert" name="employees_insert" value="Add">
+        </fieldset>
+    </form>
+
+    <h1>All Employees</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>employee_id</th>
+                <th>first_name</th>
+                <th>last_name</th>
+                <th>street</th>
+                <th>city</th>
+                <th>state</th>
+                <th>zip</th>
+                <th>dob</th>
+                <th>train</th>
+                <th>yard</th>
+                <th>station</th>
+            </tr>
+        </thead>
+        <tbody id="table_body">
+            {{#each employees}}
+            <tr id="{{this.employee_id}}">
+                <td>{{this.employee_id}}</td>
+                <td>{{this.first_name}}</td>
+                <td>{{this.last_name}}</td>
+                <td>{{this.street}}</td>
+                <td>{{this.city}}</td>
+                <td>{{this.state}}</td>
+                <td>{{this.zip}}</td>
+                <td>{{this.dob}}</td>
+                <td>{{this.train}}</td>
+                <td>{{this.yard}}</td>
+                <td>{{this.station}}</td>
+                <td>
+                    <input type="button" name="{{this.employee_id}}" value="Delete">
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<script src="js/employees.js"></script>

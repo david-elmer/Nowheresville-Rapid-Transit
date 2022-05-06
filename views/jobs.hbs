@@ -1,0 +1,60 @@
+<!--
+Nowheresville Rapid Transit Management
+David Elmer and Chenliang Wang
+
+jobs.hbs written by David Elmer
+-->
+
+<div class='content'>
+    <h1>Add or Remove Jobs</h1>
+    <form id="jobs_insert_form">
+        <fieldset>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+            <br>
+
+            <label for="shift_start">Shift Start</label>
+            <input type="time" id="shift_start" name="shift_start">
+            <br>
+
+            <label for="shift_end">Shift End</label>
+            <input type="time" id="shift_end" name="shift_end">
+            <br>
+
+            <label for="hourly_rate">Hourly Rate</label>
+            <input type="number" id="hourly_rate" name="hourly_rate">
+            <br>
+
+            <input type="button" id="jobs_insert" name="jobs_insert" value="Add">
+        </fieldset>
+    </form>
+
+    <h1>All Jobs</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>job_id</th>
+                <th>name</th>
+                <th>shift_start</th>
+                <th>shift_end</th>
+                <th>hourly_rate</th>
+            </tr>
+        </thead>
+        <tbody id="table_body">
+            {{#each jobs}}
+            <tr id="{{this.job_id}}">
+                <td>{{this.job_id}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.shift_start}}</td>
+                <td>{{this.shift_end}}</td>
+                <td>{{this.hourly_rate}}</td>
+                <td>
+                    <input type="button" name="{{this.job_id}}" value="Delete">
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<script src="js/jobs.js"></script>

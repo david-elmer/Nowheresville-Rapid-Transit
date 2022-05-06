@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #212529;
+    background-color: #e9ecef;
+    margin: 0px;
+}
+
+.header {
+    color: #f8f9fa;
+    background-color: #212529;
+    padding-top: 15px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.navigation {
+    list-style-type: none;
+}
+
+.navigation li {
+    display: inline-block;
+}
+
+.header a {
+    color: #f8f9fa;
+    text-decoration: none;
+    padding: 20px;
+}
+.navigation a:hover {
+    background-color: #343a40;
+}
+
+#picture {
+    margin-top: 0px;
+}
+
+.content {
+    padding: 20px;
+}
+
+label {
+    display: inline-block;
+    width: 125px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+#yards_insert {
+    margin-left: 145px;
+}
+
+#employees_insert {
+    margin-left: 145px;
+}
+
+#jobs_insert {
+    margin-left: 145px;
+}
+
+#assignments_insert {
+    margin-left: 145px;
+}
+
+#routes_insert {
+    margin-left: 145px;
+}
+
+#stations_insert {
+    margin-left: 145px;
+}
+
+#trains_insert {
+    margin-left: 145px;
+}
+
+#transfers_insert {
+    margin-left: 145px;
+}
+
+th, td {
+    text-align: center;
+    padding: 5px;
+}
+
+#picture, #title {
+    text-align: center;
+}
+
+.menu{
+    padding-left: 50rem;
+}
+  

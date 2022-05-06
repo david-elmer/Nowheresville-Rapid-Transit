@@ -1,0 +1,71 @@
+<!--
+Nowheresville Rapid Transit Management
+David Elmer and Chenliang Wang
+
+stations.hbs written by Chenliang Wang
+-->
+
+<div class='content'>
+    <h1>Add or Search For Stations</h1>
+    <fieldset>
+        <h1>Add a new station</h1>
+        <form id='add_station'>
+            <label for='station_name'>Name </label>
+            <input type='text' name='station_name' id='station_name'><br>
+
+            <label for='street_1'>Street 1 </label>
+            <input type='text' name='street_1' id='street_1' placeholder='Required entry'><br>
+
+            <label for='street_2'>Street 2 </label>
+            <input type='text' name='street_2' id='street_2' placeholder='Optional entry'><br>
+
+            <label for='city'>City </label>
+            <input type='text' name='city' id='city' placeholder='Nowheresville'><br>
+
+            <label for='state'>State </label>
+            <input type='text' name='state' id='state' placeholder='NY'><br>
+
+            <label for='zip'>Zip code</label>
+            <input type='text' name='zip' id='zip' placeholder='12345'><br>
+
+            <button id='stations_insert' type='submit'>Submit</button>
+        </form>
+    </fieldset>
+    <fieldset>
+        <h2>Search stations by name</h2>
+        <form id='station_search' method='get' action='/stations'>
+            <label>Station </label>
+            <input type='text' name='street_name' id='search_bar' placeholder='Downtown'>
+            <button type='submit'>Search</button>
+            <a href='/stations'><button>Clear Search Results</button></a>
+        </form>
+    </fieldset>
+    <fieldset>
+        <h1>Stations</h1>
+        <table id='station_table'>
+            <thead>
+                <tr>
+                    {{#each data.[0]}}
+                    <th>
+                        {{@key}}
+                    </th>
+                    {{/each}}
+                </tr>
+            </thead>
+            <tbody>
+                {{#each data}}
+                <tr>
+                    <td>{{this.station_id}}</td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.street_1}}</td>
+                    <td>{{this.street_2}}</td>
+                    <td>{{this.city}}</td>
+                    <td>{{this.state}}</td>
+                    <td>{{this.zip}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </fieldset>
+</div>
+<script src='/js/stations.js'></script>

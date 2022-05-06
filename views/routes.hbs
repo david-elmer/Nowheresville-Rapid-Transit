@@ -1,0 +1,53 @@
+<!--
+Nowheresville Rapid Transit Management
+David Elmer and Chenliang Wang
+
+routes.hbs written by Chenliang Wang
+-->
+
+<div class='content'>
+    <fieldset>
+        <h1>Add a new route</h1>
+        <form id='add_route'>
+            <label for='route_name'>Name </label>
+            <input type='text' name='route_name' id='route_name'><br>
+
+            <label for='start_time'>Start time </label>
+            <input type='time' name='start_time' id='start_time'><br>
+
+            <label for='end_time'>End time </label>
+            <input type='time' name='end_time' id='end_time'><br>
+
+            <label for='frequency'>Frequency (minutes) </label>
+            <input type='text' name='frequency' id='frequency'><br>
+
+            <button id='routes_insert' type='submit'>Submit</button>
+        </form>
+    </fieldset>
+    <fieldset>
+        <h1>Routes</h1>
+        <table id='route_table'>
+            <thead>
+                <tr>
+                    {{#each data.[0]}}
+                    <th>
+                        {{@key}}
+                    </th>
+                    {{/each}}
+                </tr>
+            </thead>
+            <tbody>
+                {{#each data}}
+                <tr>
+                    <td>{{this.route_id}}</td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.start_time}}</td>
+                    <td>{{this.end_time}}</td>
+                    <td>{{this.frequency}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </fieldset>
+</div>
+<script src='/js/routes.js'></script>

@@ -1,0 +1,55 @@
+<!--
+Nowheresville Rapid Transit Management
+David Elmer and Chenliang Wang
+
+transfers.hbs written by Chenliang Wang
+-->
+
+<div class='content'>
+    <fieldset>
+        <h1>Add a new stop to a route</h1>
+        <p>Select the name of the station and the route that it should be added to:</p>
+        <form id='add_transfer'>
+            <label for='station_id'>Station name </label>
+            <select id='station_id'>
+                <option value=''>Select Station</option>
+                {{#each stations}}
+                <option value='{{this.station_id}}'>{{this.name}}</option>
+                {{/each}}
+            </select><br>
+
+            <label for='route_id'>Route </label>
+            <select id='route_id'>
+                <option value=''>Select Route</option>
+                {{#each routes}}
+                <option value='{{this.route_id}}'>{{this.name}}</option>
+                {{/each}}
+            </select><br>
+
+            <button id='transfers_insert'>Submit</button>
+        </form>
+    </fieldset>
+    <fieldset>
+        <h1>Stops</h1>
+        <table id='transfer_table'>
+            <thead>
+                <tr>
+                    {{#each data.[0]}}
+                    <th>
+                        {{@key}}
+                    </th>
+                    {{/each}}
+                </tr>
+            </thead>
+            <tbody>
+                {{#each data}}
+                <tr>
+                    <td>{{this.route}}</td>
+                    <td>{{this.station}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </fieldset>
+</div>
+<script src='/js/transfers.js'></script>

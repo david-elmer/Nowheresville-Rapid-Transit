@@ -1,0 +1,119 @@
+<!--
+Nowheresville Rapid Transit Management
+David Elmer and Chenliang Wang
+
+assignments.hbs written by David Elmer
+-->
+
+<div class='content'>
+    <h1>Add or Remove Assignments</h1>
+    <form id="assignments_insert_form">
+        <fieldset>
+
+            <label for="employee_id_select">Employee</label>
+            <select id="employee_id_select" name="employee_id">
+                {{#each employees}}
+                <option value="{{this.employee_id}}">{{this.first_name}} {{this.last_name}}</option>
+                {{/each}}
+            </select>
+            <br>
+
+            <label for="job_id_select">Job</label>
+            <select id="job_id_select" name="job_id">
+                {{#each jobs}}
+                <option value="{{this.job_id}}">{{this.name}} {{this.shift_start}}</option>
+                {{/each}}
+            </select>
+            <br>
+
+            <label for="start_date">Start Date</label>
+            <input type="date" id="start_date" name="start_date">
+            <br>
+
+            <input type="button" id="assignments_insert" name="assignments_insert" value="Add">
+        </fieldset>
+    </form>
+
+    <div id="assignments_table">
+        <h1>All Assignments</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>employee_id</th>
+                    <th>first_name</th>
+                    <th>last_name</th>
+                    <th>job_id</th>
+                    <th>name</th>
+                    <th>start_date</th>
+                </tr>
+            </thead>
+            <tbody id="table_body">
+                {{#each assignments}}
+                <tr id="{{this.assignment_id}}">
+                    <td>{{this.employee_id}}</td>
+                    <td>{{this.first_name}}</td>
+                    <td>{{this.last_name}}</td>
+                    <td>{{this.job_id}}</td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.start_date}}</td>
+                    <td>
+                        <input type="button" name="{{this.assignment_id}}" value="Delete">
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="columns">
+        <div>
+            <h1>All Employees</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>employee_id</th>
+                        <th>first_name</th>
+                        <th>last_name</th>
+                        <th>dob</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each employees}}
+                    <tr>
+                        <td>{{this.employee_id}}</td>
+                        <td>{{this.first_name}}</td>
+                        <td>{{this.last_name}}</td>
+                        <td>{{this.dob}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <h1>All Jobs</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>job_id</th>
+                        <th>name</th>
+                        <th>shift_start</th>
+                        <th>shift_end</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each jobs}}
+                    <tr>
+                        <td>{{this.job_id}}</td>
+                        <td>{{this.name}}</td>
+                        <td>{{this.shift_start}}</td>
+                        <td>{{this.shift_end}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="js/assignments.js"></script>

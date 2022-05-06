@@ -1,0 +1,54 @@
+<!--
+Nowheresville Rapid Transit Management
+David Elmer and Chenliang Wang
+
+train_update.hbs written by Chenliang Wang
+-->
+
+<link rel="stylesheet" href="../css/styles.css" type="text/css">
+<div class='content'>
+    <h1>Edit train details</h1>
+
+    <form id='train_update'>
+        {{#with data.[0]}}
+        <label for='train_car'>Number of cars </label>
+        <input type='number' name='train_car' id='train_car' value='{{this.car}}'><br>
+
+        <label for='capacity'>Capacity per car </label>
+        <input type='number' name='capacity' id='capacity' value='{{this.car_capacity}}'><br>
+        {{/with}}
+
+        <label for='route_id'>Route </label>
+        <select name='route_id' id='route_id'>
+            <option value=''>None</option>
+            {{#each routes}}
+            <option value="{{this.route_id}}">{{this.name}}</option>
+            {{/each}}
+        </select><br>
+
+        <label for='yard_id'>Yard </label>
+        <select id='yard_id'>
+            <option value=''>None</option>
+            {{#each yards}}
+            <option value="{{this.yard_id}}">{{this.name}}</option>
+            {{/each}}
+        </select><br>
+
+        {{#with data.[0]}}
+        <button id='train_id' value='{{this.train_id}}' type='submit'>Submit</button>
+        {{/with}}
+    </form>
+
+    <script src='/js/train_update.js'></script>
+    <script>
+        function setDefaultSelected(element, value)
+        {
+        element.options[value-1].selected = true;
+        }
+
+        {{#with data.[0]}}
+        setDefaultSelected(document.getElementById("route_id"),{{this.route}}+1);
+        setDefaultSelected(document.getElementById("yard_id"),{{this.yard}}+1)
+        {{/with}}
+    </script>
+</div>

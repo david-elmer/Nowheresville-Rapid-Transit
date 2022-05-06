@@ -1,0 +1,84 @@
+<!--
+Nowheresville Rapid Transit Management
+David Elmer and Chenliang Wang
+
+yards.hbs written by David Elmer
+-->
+
+<div class='content'>
+    <h1>Add or Remove Yards</h1>
+    <form id="yards_insert_form">
+        <fieldset>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+            <br>
+
+            <label for="street">Street Address</label>
+            <input type="text" id="street" name="street">
+            <br>
+
+            <label for="total_employee">Total Employees</label>
+            <input type="text" id="total_employee" name="total_employee">
+            <br>
+
+            <label for="curr_occ">Current Occupancy</label>
+            <input type="text" id="curr_occupancy" name="curr_occupancy">
+            <br>
+
+            <label for="max_occ">Max Occupancy</label>
+            <input type="text" id="max_occupancy" name="max_occupancy">
+            <br>
+
+            <label for="city">City</label>
+            <input type="text" id="city" name="city">
+            <br>
+
+            <label for="state">State</label>
+            <input type="text" id="state" name="state">
+            <br>
+
+            <label for="zip">Zip Code</label>
+            <input type="text" id="zip" name="zip">
+            <br>
+
+            <input type="button" id="yards_insert" name="yards_insert" value="Add">
+        </fieldset>
+    </form>
+
+    <h1>All Yards</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>yard_id</th>
+                <th>name</th>
+                <th>street</th>
+                <th>total_employee</th>
+                <th>curr_occupancy</th>
+                <th>max_occupancy</th>
+                <th>city</th>
+                <th>state</th>
+                <th>zip</th>
+            </tr>
+        </thead>
+        <tbody id="table_body">
+            {{#each yards}}
+            <tr id="{{this.yard_id}}">
+                <td>{{this.yard_id}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.street}}</td>
+                <td>{{this.total_employee}}</td>
+                <td>{{this.curr_occupancy}}</td>
+                <td>{{this.max_occupancy}}</td>
+                <td>{{this.city}}</td>
+                <td>{{this.state}}</td>
+                <td>{{this.zip}}</td>
+                <td>
+                    <input type="button" name="{{this.yard_id}}" value="Delete">
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<script src="js/yards.js"></script>
