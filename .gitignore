@@ -1,5 +1,5 @@
 node_modules/
-database/db-connector.js
+database/
 package-lock.json
 notes.txt
 
