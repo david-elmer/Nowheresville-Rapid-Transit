@@ -25,7 +25,6 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 // SERVER ADDRESS
-process.env.HOSTNAME = 'localhost';
 PORT = 24601;
 
 // Database
@@ -733,5 +732,5 @@ app.use(function(req,res){
 */
 
 app.listen(PORT, function(){
-    console.log(`Express started on http://${process.env.HOSTNAME}:${PORT}; press Ctrl-C to terminate.`)
+    console.log(`Express started on http://localhost:${PORT}; press Ctrl-C to terminate.`)
 });
