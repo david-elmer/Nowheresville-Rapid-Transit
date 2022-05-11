@@ -5,6 +5,8 @@
 -- Description: Data definition queries and sample data
 ****************************************************************/
 
+USE nrt;
+
 -- Data Definition Queries
 
 DROP TABLE IF EXISTS assignments;

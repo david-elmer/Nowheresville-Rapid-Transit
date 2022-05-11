@@ -24,7 +24,9 @@ let app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-PORT = 54314;
+// SERVER ADDRESS
+process.env.HOSTNAME = 'localhost';
+PORT = 24601;
 
 // Database
 let db = require('./database/db-connector');
