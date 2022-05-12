@@ -164,7 +164,7 @@ function insertRequest() {
                 clearForm();
             }
         } else if (req.readyState == 4 && req.status != 200) {
-            console.log('There was an error inserting into Yards.');
+            console.log('There was an error inserting into Employees.');
         }
     }
 
