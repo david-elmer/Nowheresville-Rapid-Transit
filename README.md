@@ -1,15 +1,11 @@
 # Nowheresville Rapid Transit Management
 MySQL database driven web app using html/css/javascript and node.js/express/handlebars
 
-#
-
 This project was co-written by David Elmer (david.elmer@gmail.com) and Chenliang Wang (wangch9@oregonstate.edu).
 
 Implementation of Employees, Jobs, Assignments, and Yards by David Elmer
 
 Implementation of Trains, Stations, Routes, and Transfers by Chenliang Wang
-
-#
 
 ## Introduction
 
